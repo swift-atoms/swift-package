@@ -1,22 +1,6 @@
-// ===----------------------------------------------------------------------===//
-//
-// This source file is part of the swift-package-primitives open source project
-//
-// Copyright (c) 2026 Coen ten Thije Boonkkamp and the swift-package-primitives project authors
-// Licensed under Apache License v2.0
-//
-// See LICENSE for license information
-//
-// ===----------------------------------------------------------------------===//
-
 import Package_Primitives
 import Testing
 
-// `Package.Name` is `Tagged<Package, String>` — an unspecialized-generic
-// nested-type host: an extension at this concrete specialization compiles
-// but its nested `@Suite` types are shared across every `Tagged<Tag, _>`
-// specialization (collides with `Target.Name`'s and `Product.Name`'s own
-// suites). This uses the top-level backticked-name fallback instead.
 @Suite
 struct `Package.Name Tests` {
     @Suite struct Unit {}
