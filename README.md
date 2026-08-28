@@ -19,7 +19,7 @@ without importing a consumer-flavored surface.
 ```swift
 import Package
 
-let packageName: Package.Name = "swift-molecules"
+let packageName: Package.Name = "swift-package"
 let productName: Product.Name = "Package"
 let targetName: Target.Name = "Package"
 
@@ -36,7 +36,7 @@ via the standard-library-integration target).
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-package.git", branch: "main"),
+    .package(url: "https://github.com/swift-atoms/swift-package.git", branch: "main"),
 ]
 ```
 
@@ -86,7 +86,7 @@ adopt the types without inheriting a Foundation dependency.
 
 ## Design
 
-- Research: `swift-institute/Research/2026-05-12-swift-package-and-version-primitives-design.md` v1.0.0 RECOMMENDATION
+- Research: `swift-institute/Research/2026-05-12-swift-package-and-version-design.md` v1.0.0 RECOMMENDATION
 - Framework: `swift-institute/Research/2026-05-12-typed-identifier-naming-framework.md` v1.0.0 RECOMMENDATION
 
 ## License

@@ -26,7 +26,7 @@ extension `Product.Name Tests`.Unit {
     func `Hashable conformance distinguishes values`() {
         var set: Swift.Set<Product.Name> = []
         set.insert("Package")
-        set.insert("Version Primitives")
+        set.insert("Version")
         set.insert("Package")
         #expect(set.count == 2)
     }

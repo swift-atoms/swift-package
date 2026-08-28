@@ -34,9 +34,9 @@ extension `Target.Name Tests`.Unit {
 extension `Target.Name Tests`.Integration {
     @Test
     func `Type discrimination — Package.Name and Target.Name are distinct types`() {
-        let pkg: Package.Name = "swift-molecules"
+        let pkg: Package.Name = "swift-package"
         let tgt: Target.Name = "Package"
-        #expect(pkg.underlying == "swift-molecules")
+        #expect(pkg.underlying == "swift-package")
         #expect(tgt.underlying == "Package")
     }
 }
