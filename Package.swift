@@ -15,36 +15,30 @@ let package = Package(
         .library(
             name: "Package",
             targets: ["Package"]
-        ),
-        .library(
-            name: "Package Standard Library Integration",
-            targets: ["Package Standard Library Integration"]
-        ),
-        .library(
-            name: "Package Apple Foundation Integration",
-            targets: ["Package Apple Foundation Integration"]
-        ),
+        )
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            url: "https://github.com/swift-molecules/swift-tagged.git",
+            branch: "main"
+        )
+    ],
     targets: [
         .target(
             name: "Package",
-            dependencies: []
-        ),
-        .target(
-            name: "Package Standard Library Integration",
-            dependencies: ["Package"]
-        ),
-        .target(
-            name: "Package Apple Foundation Integration",
             dependencies: [
-                "Package",
-                "Package Standard Library Integration",
+                .product(name: "Tagged", package: "swift-tagged"),
+                .product(
+                    name: "Tagged Standard Library Integration",
+                    package: "swift-tagged"
+                ),
             ]
         ),
         .testTarget(
             name: "Package Tests",
-            dependencies: ["Package"],
+            dependencies: [
+                "Package"
+            ],
             path: "Tests/Package Tests"
         ),
     ],
