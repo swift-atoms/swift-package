@@ -86,7 +86,7 @@ adopt the types without inheriting a Foundation dependency.
 
 ## Design
 
-- Research: `swift-institute/Research/2026-05-12-swift-package-and-version-primitives-design.md` v1.0.0 RECOMMENDATION
+- Research: `swift-institute/Research/2026-05-12-swift-package-and-version-design.md` v1.0.0 RECOMMENDATION
 - Framework: `swift-institute/Research/2026-05-12-typed-identifier-naming-framework.md` v1.0.0 RECOMMENDATION
 
 ## License
