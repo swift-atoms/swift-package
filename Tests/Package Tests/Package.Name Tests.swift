@@ -1,4 +1,4 @@
-import Package_Primitives
+import Package
 import Testing
 
 @Suite
@@ -11,20 +11,20 @@ struct `Package.Name Tests` {
 extension `Package.Name Tests`.Unit {
     @Test
     func `Constructs from string literal`() {
-        let name: Package.Name = "swift-primitives"
-        #expect(name.underlying == "swift-primitives")
+        let name: Package.Name = "swift-package"
+        #expect(name.underlying == "swift-package")
     }
 
     @Test
     func `Equal values compare equal`() {
-        let a: Package.Name = "swift-primitives"
-        let b: Package.Name = "swift-primitives"
+        let a: Package.Name = "swift-package"
+        let b: Package.Name = "swift-package"
         #expect(a == b)
     }
 
     @Test
     func `Distinct values compare unequal`() {
-        let a: Package.Name = "swift-primitives"
+        let a: Package.Name = "swift-package"
         let b: Package.Name = "swift-standards"
         #expect(a != b)
     }
@@ -32,9 +32,9 @@ extension `Package.Name Tests`.Unit {
     @Test
     func `Hashable conformance distinguishes values`() {
         var set: Swift.Set<Package.Name> = []
-        set.insert("swift-primitives")
+        set.insert("swift-package")
         set.insert("swift-standards")
-        set.insert("swift-primitives")
+        set.insert("swift-package")
         #expect(set.count == 2)
     }
 

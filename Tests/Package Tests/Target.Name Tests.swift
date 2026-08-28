@@ -1,4 +1,4 @@
-import Package_Primitives
+import Package
 import Testing
 
 @Suite
@@ -11,22 +11,22 @@ struct `Target.Name Tests` {
 extension `Target.Name Tests`.Unit {
     @Test
     func `Constructs from string literal`() {
-        let name: Target.Name = "Package Primitives"
-        #expect(name.underlying == "Package Primitives")
+        let name: Target.Name = "Package"
+        #expect(name.underlying == "Package")
     }
 
     @Test
     func `Equal values compare equal`() {
-        let a: Target.Name = "Package Primitives"
-        let b: Target.Name = "Package Primitives"
+        let a: Target.Name = "Package"
+        let b: Target.Name = "Package"
         #expect(a == b)
     }
 
     @Test
     func `Hashable conformance distinguishes values`() {
         var set: Swift.Set<Target.Name> = []
-        set.insert("Package Primitives")
-        set.insert("Package Primitives Tests")
+        set.insert("Package")
+        set.insert("Package Tests")
         #expect(set.count == 2)
     }
 }
@@ -34,9 +34,9 @@ extension `Target.Name Tests`.Unit {
 extension `Target.Name Tests`.Integration {
     @Test
     func `Type discrimination — Package.Name and Target.Name are distinct types`() {
-        let pkg: Package.Name = "swift-primitives"
-        let tgt: Target.Name = "Package Primitives"
-        #expect(pkg.underlying == "swift-primitives")
-        #expect(tgt.underlying == "Package Primitives")
+        let pkg: Package.Name = "swift-package"
+        let tgt: Target.Name = "Package"
+        #expect(pkg.underlying == "swift-package")
+        #expect(tgt.underlying == "Package")
     }
 }

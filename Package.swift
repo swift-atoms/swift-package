@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-package-primitives",
+    name: "swift-package",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,33 +13,32 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Package Primitives",
-            targets: ["Package Primitives"]
+            name: "Package",
+            targets: ["Package"]
         )
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-tagged-primitives.git",
+            url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         )
     ],
     targets: [
         .target(
-            name: "Package Primitives",
+            name: "Package",
             dependencies: [
-                .product(name: "Tagged Primitives", package: "swift-tagged-primitives"),
+                .product(name: "Tagged", package: "swift-tagged"),
                 .product(
-                    name: "Tagged Primitives Standard Library Integration",
-                    package: "swift-tagged-primitives"
+                    name: "Tagged Standard Library Integration",
+                    package: "swift-tagged"
                 ),
             ]
         ),
         .testTarget(
-            name: "Package Primitives Tests",
+            name: "Package Tests",
             dependencies: [
-                "Package Primitives"
-            ],
-            path: "Tests/Package Primitives Tests"
+                .target(name: "Package")
+            ]
         ),
     ],
     swiftLanguageModes: [.v6]

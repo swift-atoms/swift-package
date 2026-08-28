@@ -1,4 +1,4 @@
-# swift-package-primitives
+# swift-package
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -17,11 +17,11 @@ without importing a consumer-flavored surface.
 ## Quick Start
 
 ```swift
-import Package_Primitives
+import Package
 
-let packageName: Package.Name = "swift-primitives"
-let productName: Product.Name = "Package Primitives"
-let targetName: Target.Name = "Package Primitives"
+let packageName: Package.Name = "swift-package"
+let productName: Product.Name = "Package"
+let targetName: Target.Name = "Package"
 
 // Type discrimination prevents mix-ups at the type system:
 // packageName == productName  // ❌ compile error: different types
@@ -36,7 +36,7 @@ via the standard-library-integration target).
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-package-primitives.git", branch: "main"),
+    .package(url: "https://github.com/swift-atoms/swift-package.git", branch: "main"),
 ]
 ```
 
@@ -46,13 +46,13 @@ dependencies: [
 .target(
     name: "YourPackage",
     dependencies: [
-        .product(name: "Package Primitives", package: "swift-package-primitives"),
+        .product(name: "Package", package: "swift-package"),
     ]
 )
 ```
 
-`Package Primitives` re-exports `Tagged_Primitives` and
-`Tagged_Primitives_Standard_Library_Integration`; consumers do not
+`Package` re-exports `Tagged` and
+`Tagged_Standard_Library_Integration`; consumers do not
 import them separately to construct values via string literal.
 
 ## What's in the namespace
@@ -71,7 +71,7 @@ for manifest-level names (see
 `Sources/PackageLoading/PackageBuilder.swift:837-844, 1576-1578`);
 institute consumers inherit the same permissive contract. Product and
 target names commonly contain spaces per institute convention
-(`"Tagged Primitives Standard Library Integration"`); the permissive
+(`"Tagged Standard Library Integration"`); the permissive
 contract preserves that usage.
 
 The stricter SE-0292 registry-identifier rules apply to a separate
@@ -80,7 +80,7 @@ type (`Package.Identity` — deferred to a future version).
 ## Foundation-clean
 
 This package imports no `Foundation` and depends only on
-`swift-tagged-primitives` (Tier 0 primitives). Cross-ecosystem
+`swift-tagged` (Tier 0 primitives). Cross-ecosystem
 consumers — Rust/Cargo bridges, NPM bridges, registry tooling —
 adopt the types without inheriting a Foundation dependency.
 
