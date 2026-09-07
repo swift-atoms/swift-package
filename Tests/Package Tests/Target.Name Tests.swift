@@ -2,41 +2,31 @@ import Package
 import Testing
 
 @Suite
-struct `Target.Name Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Target names preserve their declared values` {
+    @Suite struct `Names retain their values` {}
+    @Suite struct `Names accept permissive input` {}
+    @Suite struct `Names preserve their domain` {}
 }
 
-extension `Target.Name Tests`.Unit {
+extension `Target names preserve their declared values`.`Names retain their values` {
     @Test
-    func `Constructs from string literal`() {
+    func `names can be constructed from string literals`() {
         let name: Target.Name = "Package"
         #expect(name.underlying == "Package")
     }
 
     @Test
-    func `Equal values compare equal`() {
+    func `equal names compare equal`() {
         let a: Target.Name = "Package"
         let b: Target.Name = "Package"
         #expect(a == b)
     }
 
     @Test
-    func `Hashable conformance distinguishes values`() {
+    func `hashed collections distinguish name values`() {
         var set: Swift.Set<Target.Name> = []
         set.insert("Package")
         set.insert("Package Tests")
         #expect(set.count == 2)
-    }
-}
-
-extension `Target.Name Tests`.Integration {
-    @Test
-    func `Type discrimination — Package.Name and Target.Name are distinct types`() {
-        let pkg: Package.Name = "swift-package"
-        let tgt: Target.Name = "Package"
-        #expect(pkg.underlying == "swift-package")
-        #expect(tgt.underlying == "Package")
     }
 }

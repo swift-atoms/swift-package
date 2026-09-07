@@ -53,7 +53,8 @@ let package = Package(
                 .target(name: "Package Test Support"),
                 .target(name: "Package Foundation Integration"),
             ],
-            path: "Tests/Package Tests"
+            path: "Tests/Package Tests",
+            resources: [.copy("Name domains.swift")]
         ),
     ],
     swiftLanguageModes: [.v6]

@@ -2,28 +2,28 @@ import Package
 import Testing
 
 @Suite
-struct `Product.Name Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Product names preserve their declared values` {
+    @Suite struct `Names retain their values` {}
+    @Suite struct `Names accept permissive input` {}
+    @Suite struct `Names preserve their domain` {}
 }
 
-extension `Product.Name Tests`.Unit {
+extension `Product names preserve their declared values`.`Names retain their values` {
     @Test
-    func `Constructs from string literal`() {
+    func `names can be constructed from string literals`() {
         let name: Product.Name = "Package"
         #expect(name.underlying == "Package")
     }
 
     @Test
-    func `Equal values compare equal`() {
+    func `equal names compare equal`() {
         let a: Product.Name = "Package"
         let b: Product.Name = "Package"
         #expect(a == b)
     }
 
     @Test
-    func `Hashable conformance distinguishes values`() {
+    func `hashed collections distinguish name values`() {
         var set: Swift.Set<Product.Name> = []
         set.insert("Package")
         set.insert("Version")
@@ -32,10 +32,10 @@ extension `Product.Name Tests`.Unit {
     }
 }
 
-extension `Product.Name Tests`.`Edge Case` {
+extension `Product names preserve their declared values`.`Names accept permissive input` {
     @Test
-    func `Spaces are accepted (institute convention)`() {
-        let name: Product.Name = "Tagged"
-        #expect(name.underlying == "Tagged")
+    func `names preserve embedded spaces`() {
+        let name: Product.Name = "Package Tagged"
+        #expect(name.underlying == "Package Tagged")
     }
 }
