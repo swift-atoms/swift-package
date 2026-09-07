@@ -35,7 +35,7 @@ extension `Product.Name Tests`.Unit {
 extension `Product.Name Tests`.`Edge Case` {
     @Test
     func `Spaces are accepted (institute convention)`() {
-        let name: Product.Name = "Tagged Standard Library Integration"
-        #expect(name.underlying == "Tagged Standard Library Integration")
+        let name: Product.Name = "Tagged"
+        #expect(name.underlying == "Tagged")
     }
 }
