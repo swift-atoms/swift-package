@@ -1,4 +1,3 @@
-# .github/metadata.yaml
 description: "Typed identifiers for the Swift package management domain — Package.Name, Product.Name, Target.Name backed by Tagged<Tag, String>."
 topics:
   - primitives
