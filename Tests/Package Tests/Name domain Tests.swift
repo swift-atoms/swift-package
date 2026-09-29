@@ -35,17 +35,14 @@ import Testing
         #expect(received.2 == values.2)
     }
 
-    private func roundTrip<Name>(
-        _ name: Name, text: String
-    ) throws
-    where Name: Codable & Equatable & Sendable & LosslessStringConvertible & Collection,
-        Name.Element == Character
-    {
+    private func roundTrip<Domain>(
+        _ name: Tagged<Domain, String>, text: String
+    ) throws {
         let encoded = try JSONEncoder().encode(name)
         #expect(try JSONDecoder().decode(String.self, from: encoded) == text)
-        #expect(try JSONDecoder().decode(Name.self, from: encoded) == name)
+        #expect(try JSONDecoder().decode(Tagged<Domain, String>.self, from: encoded) == name)
         #expect(name.description == text)
-        #expect(Name(text) == name)
+        #expect(Tagged<Domain, String>(text) == name)
         #expect(Array(name) == Array(text))
     }
 
