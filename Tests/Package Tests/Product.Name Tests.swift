@@ -24,7 +24,7 @@ extension `Product names preserve their declared values`.`Names retain their val
 
     @Test
     func `hashed collections distinguish name values`() {
-        var set: Swift.Set<Product.Name> = []
+        var set: Swift::Set<Product.Name> = []
         set.insert("Package")
         set.insert("Version")
         set.insert("Package")

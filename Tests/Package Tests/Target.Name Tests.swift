@@ -24,7 +24,7 @@ extension `Target names preserve their declared values`.`Names retain their valu
 
     @Test
     func `hashed collections distinguish name values`() {
-        var set: Swift.Set<Target.Name> = []
+        var set: Swift::Set<Target.Name> = []
         set.insert("Package")
         set.insert("Package Tests")
         #expect(set.count == 2)

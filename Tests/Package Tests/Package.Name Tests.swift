@@ -31,7 +31,7 @@ extension `Package names preserve their declared values`.`Names retain their val
 
     @Test
     func `hashed collections distinguish name values`() {
-        var set: Swift.Set<Package.Name> = []
+        var set: Swift::Set<Package.Name> = []
         set.insert("swift-package")
         set.insert("swift-standards")
         set.insert("swift-package")
