@@ -36,7 +36,8 @@ import Testing
     }
 
     private func roundTrip<Domain>(
-        _ name: Tagged<Domain, String>, text: String
+        _ name: Tagged<Domain, String>,
+        text: String
     ) throws {
         let encoded = try JSONEncoder().encode(name)
         #expect(try JSONDecoder().decode(String.self, from: encoded) == text)
@@ -60,7 +61,10 @@ import Testing
     }
 
     private actor Receiver {
-        func receive(_ values: (Package.Name, Product.Name, Target.Name))
-            -> (Package.Name, Product.Name, Target.Name) { values }
+        func receive(
+            _ values: (Package.Name, Product.Name, Target.Name)
+        )
+            -> (Package.Name, Product.Name, Target.Name)
+        { values }
     }
 }
