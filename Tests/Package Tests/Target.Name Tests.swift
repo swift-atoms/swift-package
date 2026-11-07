@@ -1,14 +1,23 @@
 import Package
 import Testing
 
-@Suite
-struct `Target names preserve their declared values` {
+enum `Target.Name Tests` {}
+
+extension `Target.Name Tests` {
+    @Suite
+    struct `Target names preserve their declared values` {
+    }
+}
+
+extension `Target.Name Tests`.`Target names preserve their declared values` {
     @Suite struct `Names retain their values` {}
+
     @Suite struct `Names accept permissive input` {}
+
     @Suite struct `Names preserve their domain` {}
 }
 
-extension `Target names preserve their declared values`.`Names retain their values` {
+extension `Target.Name Tests`.`Target names preserve their declared values`.`Names retain their values` {
     @Test
     func `names can be constructed from string literals`() {
         let name: Target.Name = "Package"

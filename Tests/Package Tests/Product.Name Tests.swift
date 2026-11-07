@@ -1,14 +1,23 @@
 import Package
 import Testing
 
-@Suite
-struct `Product names preserve their declared values` {
+enum `Product.Name Tests` {}
+
+extension `Product.Name Tests` {
+    @Suite
+    struct `Product names preserve their declared values` {
+    }
+}
+
+extension `Product.Name Tests`.`Product names preserve their declared values` {
     @Suite struct `Names retain their values` {}
+
     @Suite struct `Names accept permissive input` {}
+
     @Suite struct `Names preserve their domain` {}
 }
 
-extension `Product names preserve their declared values`.`Names retain their values` {
+extension `Product.Name Tests`.`Product names preserve their declared values`.`Names retain their values` {
     @Test
     func `names can be constructed from string literals`() {
         let name: Product.Name = "Package"
@@ -32,7 +41,7 @@ extension `Product names preserve their declared values`.`Names retain their val
     }
 }
 
-extension `Product names preserve their declared values`.`Names accept permissive input` {
+extension `Product.Name Tests`.`Product names preserve their declared values`.`Names accept permissive input` {
     @Test
     func `names preserve embedded spaces`() {
         let name: Product.Name = "Package Tagged"

@@ -1,14 +1,23 @@
 import Package
 import Testing
 
-@Suite
-struct `Package names preserve their declared values` {
+enum `Package.Name Tests` {}
+
+extension `Package.Name Tests` {
+    @Suite
+    struct `Package names preserve their declared values` {
+    }
+}
+
+extension `Package.Name Tests`.`Package names preserve their declared values` {
     @Suite struct `Names retain their values` {}
+
     @Suite struct `Names accept permissive input` {}
+
     @Suite struct `Names preserve their domain` {}
 }
 
-extension `Package names preserve their declared values`.`Names retain their values` {
+extension `Package.Name Tests`.`Package names preserve their declared values`.`Names retain their values` {
     @Test
     func `names can be constructed from string literals`() {
         let name: Package.Name = "swift-package"
@@ -46,7 +55,7 @@ extension `Package names preserve their declared values`.`Names retain their val
     }
 }
 
-extension `Package names preserve their declared values`.`Names accept permissive input` {
+extension `Package.Name Tests`.`Package names preserve their declared values`.`Names accept permissive input` {
     @Test
     func `empty names remain valid`() {
         let name: Package.Name = ""
