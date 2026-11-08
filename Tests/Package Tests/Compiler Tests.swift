@@ -2,9 +2,9 @@
     import Foundation
     import Testing
 
-enum `Compiler Tests` {}
+    enum `Compiler Tests` {}
 
-extension `Compiler Tests` {
+    extension `Compiler Tests` {
         @Suite(.serialized) struct `The compiler preserves package name domains` {
             enum Domain: String, CaseIterable, Sendable {
                 case package = "PACKAGE"
@@ -55,5 +55,5 @@ extension `Compiler Tests` {
                 #expect(!diagnostic.contains("no such module"), "\(diagnostic)")
             }
         }
-}
+    }
 #endif
